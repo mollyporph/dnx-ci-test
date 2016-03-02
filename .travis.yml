@@ -1,0 +1,10 @@
+language: CSharp
+mono:
+ - latest
+install:
+ - curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
+ - dnvm install 1.0.0-rc1-update1 -r mono
+ - dnvm use 1.0.0-rc1-update1 -r mono
+ - dnu restore
+script:
+ - dnx /home/travis/build/mollyporph/appveyor-test-pub/src/appveyor.test/project.json test
