@@ -6,7 +6,7 @@ namespace appveyor.test
         {
             [Theory]
             [InlineData(3,5,8)]
-            [InlineData(5,10,15)]
+            [InlineData(5,10,20)]
             [InlineData(6,2,8)]
             public void CanAddNumbers(int x, int y, int expected)
             {
