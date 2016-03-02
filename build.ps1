@@ -3,7 +3,7 @@ $PSScriptFilePath = (Get-Item $MyInvocation.MyCommand.Path).FullName
 " PSScriptFilePath = $PSScriptFilePath"
 
 $SolutionRoot = Split-Path -Path $PSScriptFilePath -Parent
-$LibFolder = Join-Path -Path $SolutionRoot -ChildPath "src/appveyor";
+$LibFolder = $SolutionRoot
 
 $DNU = "dnu"
 $DNX = "dnx"
@@ -21,7 +21,7 @@ if (-not $?)
 	throw "The DNU restore process returned an error code."
 }
 
-& $DNU build "$TestsFolder"
+& $DNU build "$LibFolder"
 if (-not $?)
 {
 	throw "The DNU build process returned an error code."

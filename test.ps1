@@ -3,17 +3,17 @@ $PSScriptFilePath = (Get-Item $MyInvocation.MyCommand.Path).FullName
 " PSScriptFilePath = $PSScriptFilePath"
 
 $SolutionRoot = Split-Path -Path $PSScriptFilePath -Parent
-$TestsFolder = Join-Path -Path $SolutionRoot -ChildPath "src/appveyor.test";
+$TestsFolder = $SolutionRoot
 
 $DNU = "dnu"
 $DNX = "dnx"
 $DNVM = "dnvm"
 
 # ensure the correct version
-& $DNVM install 1.0.0-rc1-update1 -r mono
+& $DNVM install 1.0.0-rc1-update1
 
 # use the correct version
-& $DNVM use 1.0.0-rc1-update1 -r mono
+& $DNVM use 1.0.0-rc1-update1
 
 & $DNU restore "$TestsFolder"
 if (-not $?)
