@@ -5,7 +5,7 @@ namespace appveyor.test
         public class CalculatorTests
         {
             [Theory]
-            [InlineData(3,5,15)]
+            [InlineData(3,5,8)]
             [InlineData(5,10,15)]
             [InlineData(6,2,8)]
             public void CanAddNumbers(int x, int y, int expected)
