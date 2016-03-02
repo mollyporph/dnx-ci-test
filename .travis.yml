@@ -7,4 +7,4 @@ install:
  - dnvm use 1.0.0-rc1-update1 -r mono
  - dnu restore
 script:
- - dnx /home/travis/build/mollyporph/dnx-ci-test/project.json test
+ - dnx test
